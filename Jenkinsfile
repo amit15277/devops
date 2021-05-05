@@ -17,6 +17,11 @@ pipeline {
             steps {
                 sh "terraform version && terraform fmt -recursive && terraform validate"
             }
+            steps {
+                script {
+                    sh "terraform workspace select dev || terraform workspace new dev"
+                    }
+                }
         }
 
         
