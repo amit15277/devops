@@ -4,10 +4,14 @@ pipeline {
     
 
     stages {
+       stage ('TF Initialize') {
+            steps {
+                sh "terraform init -input=false"
+            }
+        }
 
         
-
-        stage ('TF destroy') {
+       stage ('TF destroy') {
             steps {
                 sh "terraform destroy -auto-approve"
             }
