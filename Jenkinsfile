@@ -20,8 +20,8 @@ pipeline {
             steps {
                 script {
                     sh "terraform workspace select dev || terraform workspace new dev"
-                    }
                 }
+            }
         }
 
         
