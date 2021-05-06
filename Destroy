@@ -8,6 +8,8 @@ pipeline {
             steps {
                 sh "terraform init -input=false"
             }
+       stage ('Pre Checks') {
+            
             steps {
                 script {
                     sh "terraform workspace select dev || terraform workspace new dev"
