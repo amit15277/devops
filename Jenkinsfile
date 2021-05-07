@@ -9,7 +9,7 @@ pipeline {
 
         stage ('TF Initialize') {
             steps {
-                sh "sudo /terraform/terraform init -input=false ./jenkins"
+                sh "/terraform/terraform init -input=false ./jenkins"
             }
         }
 
@@ -17,7 +17,7 @@ pipeline {
             
             steps {
                 script {
-                    sh "sudo terraform/terraform workspace select dev || sudo terraform/terraform workspace new dev"
+                    sh "/terraform/terraform workspace select dev || /terraform/terraform workspace new dev"
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
         stage ('Apply') {
             
             steps {
-                sh "sudo terraform/terraform apply -auto-approve ./jenkins"
+                sh "/terraform/terraform apply -auto-approve ./jenkins"
             }
         }
     }
