@@ -5,11 +5,7 @@ pipeline {
 
     stages {
 
-        stage('git clone') {
-            steps {
-                sh 'sudo rm -r *;sudo git clone https://github.com/amit15277/devops.git'
-            }
-        }       
+        
 
         stage ('TF Initialize') {
             steps {
