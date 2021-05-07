@@ -21,7 +21,7 @@ pipeline {
             
             steps {
                 script {
-                    sh "terraform workspace select dev || terraform workspace new dev"
+                    sh "sudo terraform/terraform workspace select dev || sudo terraform/terraform workspace new dev"
                 }
             }
         }
