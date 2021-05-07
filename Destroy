@@ -6,7 +6,7 @@ pipeline {
     stages {
        stage ('TF Initialize') {
             steps {
-                sh "terraform init -input=false"
+                sh "sudo teraform/terraform init -input=false"
             }
             
        }
@@ -14,7 +14,7 @@ pipeline {
             
             steps {
                 script {
-                    sh "terraform workspace select dev || terraform workspace new dev"
+                    sh "sudo /teraform/terraform workspace select dev"
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         
        stage ('TF destroy') {
             steps {
-                sh "terraform destroy -auto-approve"
+                sh "sudo terraform/terraform destroy -auto-approve"
             }
         }
         
