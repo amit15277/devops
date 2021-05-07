@@ -17,7 +17,7 @@ pipeline {
             
             steps {
                 script {
-                    sh "/terraform/terraform workspace select dev || /terraform/terraform workspace new dev"
+                    sh "/terraform/Amitdevops/INFRA/terraform workspace select dev || /terraform/Amitdevops/INFRA/terraform workspace new dev"
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
         stage ('Apply') {
             
             steps {
-                sh "/terraform/terraform apply -auto-approve ./jenkins"
+                sh "/terraform/Amitdevops/INFRA/terraform plan"
             }
         }
     }
