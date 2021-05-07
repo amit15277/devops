@@ -5,11 +5,15 @@ pipeline {
 
     stages {
 
-                
+        stage('git clone') {
+            steps {
+                sh 'sudo rm -r *;sudo git clone https://github.com/amit15277/devops.git'
+            }
+        }       
 
         stage ('TF Initialize') {
             steps {
-                sh "terraform init -input=false"
+                sh "sudo /terraform/terraform init -input=false ./jenkins"
             }
         }
 
@@ -26,7 +30,7 @@ pipeline {
         stage ('Apply') {
             
             steps {
-                sh "terraform apply -auto-approve"
+                sh "sudo terraform/terraform apply -auto-approve ./jenkins"
             }
         }
     }
