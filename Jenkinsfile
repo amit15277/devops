@@ -9,7 +9,7 @@ pipeline {
 
         stage ('TF Initialize') {
             steps {
-                sh "/terraform/Amitdevops/INFRA/terraform init -input=false ./jenkins"
+                sh "/terraform/Amitdevops/INFRA/terraform init -input=false"
             }
         }
 
