@@ -6,7 +6,7 @@ pipeline {
     stages {
        stage ('TF Initialize') {
             steps {
-                sh "teraform/Amitdevops/INFRA/terraform init"
+                sh "terraform init"
             }
             
        }
@@ -14,7 +14,7 @@ pipeline {
             
             steps {
                 script {
-                    sh "sudo /teraform/Amitdevops/INFRA/terraform workspace select dev"
+                    sh "terraform workspace select demo"
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         
        stage ('TF destroy') {
             steps {
-                sh "/terraform/Amitdevops/INFRA/terraform destroy -auto-approve"
+                sh "terraform destroy -auto-approve"
             }
         }
         
