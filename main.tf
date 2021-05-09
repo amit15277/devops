@@ -130,7 +130,7 @@ resource "aws_instance" "Amit1" {
    host = self.public_ip
    type = "ssh"
    user = "ec2-user"
-   private_key = file("/home/amit/AmitWin.pem")
+   private_key = file("AmitWin.pem")
   }
 }
 
@@ -141,7 +141,7 @@ resource "aws_instance" "Amit1" {
 
 
  provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.Amit1.public_ip}, --private-key ${"/home/amit/AmitWin.pem"}  nginx.yml"
+    command = "ansible-playbook -i ${aws_instance.Amit1.public_ip}, --private-key ${"AmitWin.pem"}  nginx.yml"
 
   }
 }
