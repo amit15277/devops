@@ -130,7 +130,7 @@ resource "aws_instance" "Amit1" {
    host = self.public_ip
    type = "ssh"
    user = "ec2-user"
-   private_key = file("/var/jenkins_home/workspace/demo/AmitWin.pem")
+   private_key = file("/terraform/devops/AmitWin.pem")
   }
 }
 
@@ -141,7 +141,7 @@ resource "aws_instance" "Amit1" {
 
 
  provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.Amit1.public_ip}, --private-key ${"/var/jenkins_home/workspace/demo/AmitWin.pem"}  nginx.yml"
+    command = "ansible-playbook -i ${aws_instance.Amit1.public_ip}, --private-key ${"/terraform/devops/AmitWin.pem"}  nginx.yml"
 
   }
 }
