@@ -9,7 +9,7 @@ pipeline {
 
         stage ('TF Initialize') {
             steps {
-                sh "/terraform/Amitdevops/INFRA/terraform init -input=false"
+                sh "terraform init -input=false"
             }
         }
 
@@ -17,7 +17,7 @@ pipeline {
             
             steps {
                 script {
-                    sh "/terraform/Amitdevops/INFRA/terraform workspace select dev || /terraform/Amitdevops/INFRA/terraform workspace new dev"
+                    sh "terraform workspace select dev || terraform workspace new dev"
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
         stage ('Apply') {
             
             steps {
-                sh "/terraform/Amitdevops/INFRA/terraform plan"
+                sh "terraform plan"
             }
         }
     }
