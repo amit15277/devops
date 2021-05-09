@@ -10,15 +10,7 @@ pipeline {
             }
             
        }
-       stage ('Pre Checks') {
-            
-            steps {
-                script {
-                    sh "terraform workspace select demo"
-                }
-            }
-        }
-
+       
         
        stage ('TF destroy') {
             steps {
