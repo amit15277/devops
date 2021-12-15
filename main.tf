@@ -108,7 +108,7 @@ resource "aws_route_table_association" "test" {
 }
 
 
-resource "aws_instance" "NGINX" {
+resource "aws_instance" "Nginx" {
   
  ami           = "ami-0a9d27a9f4f5c0efc"
  instance_type = "t2.micro"
@@ -119,7 +119,7 @@ resource "aws_instance" "NGINX" {
  vpc_security_group_ids = [aws_security_group.all_http.id, aws_security_group.all_ssh.id]
  #depends_on = [module.vpc_module.internet_gw_id]
  tags = {
-    Name = "NGINX"
+    Name = "Nginx"
   }
  provisioner "remote-exec" {
     inline = [
@@ -141,7 +141,7 @@ resource "aws_instance" "NGINX" {
 
 
  provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.Amit1.public_ip}, --private-key ${"/terraform/devops/AmitWin.pem"}  nginx.yml"
+    command = "ansible-playbook -i ${aws_instance.Nginx.public_ip}, --private-key ${"/terraform/devops/AmitWin.pem"}  nginx.yml"
 
   }
 }
