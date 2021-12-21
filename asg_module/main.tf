@@ -14,7 +14,7 @@ resource "aws_launch_configuration" "this" {
   security_groups             = var.security_groups
   key_name                    = aws_key_pair.this.key_name
   associate_public_ip_address = true
-  user_data                   = "#!/bin/bash\nsudo apt install apache2 -y \n sudo service apache2 start"
+  user_data                   = "#!/bin/bash\nsudo apt update \n sudo apt install apache2 -y \n sudo service apache2 start"
 }
 
 resource "aws_key_pair" "this" {
